@@ -57,7 +57,7 @@ with tab1:
         st.plotly_chart(fig_imp, use_container_width=True)
     
     st.markdown("""
-    <div style='background-color: #fce4ec; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+    <div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px; margin: 10px 0;'>
     <b>📝 Comment:</b> Three different methods highlight similar features.
     Long-term trend and lag features are dominant.
     </div>
@@ -88,7 +88,7 @@ with tab2:
     st.plotly_chart(fig_shap, use_container_width=True)
     
     st.markdown("""
-    <div style='background-color: #fce4ec; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+    <div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px; margin: 10px 0;'>
     <b>📝 Comment:</b> SHAP validated our selection results.
     Rolling mean and lag features are dominant.
     </div>
@@ -116,7 +116,7 @@ with tab3:
         st.plotly_chart(fig_heat, use_container_width=True)
     
     st.markdown("""
-    <div style='background-color: #fce4ec; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+    <div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px; margin: 10px 0;'>
     <b>📝 Comment:</b> Multicollinearity check was performed.
     Highly correlated feature pairs should be used carefully in the model.
     </div>
