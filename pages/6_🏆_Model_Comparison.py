@@ -129,7 +129,7 @@ with tab2:
         """)
     
     st.markdown("""
-    <div style='background-color: #e8f5e9; padding: 15px; border-radius: 8px;'>
+    <div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px;'>
     <b>✅ Strengths:</b>
     <ul>
     <li>Faster training</li>
