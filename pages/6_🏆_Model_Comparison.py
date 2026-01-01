@@ -160,7 +160,7 @@ with tab3:
         """)
     
     st.markdown("""
-    <div style='background-color: #fff3e0; padding: 15px; border-radius: 8px;'>
+    <div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px;'>
     <b>✅ Strengths:</b>
     <ul>
     <li>Seasonality decomposition</li>
