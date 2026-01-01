@@ -1,6 +1,6 @@
 """
 DASHBOARD 1: DATA & BUSINESS OVERVIEW
-"Bu veri ne anlatıyor? Olist'te talep nasıl bir yapı gösteriyor?"
+"What does this data tell us? What kind of demand pattern does Olist show?"
 """
 
 import streamlit as st
