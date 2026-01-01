@@ -196,7 +196,7 @@ with tab4:
         """)
     
     st.markdown("""
-    <div style='background-color: #f3e5f5; padding: 15px; border-radius: 8px;'>
+    <div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px;'>
     <b>✅ Strengths:</b>
     <ul>
     <li>Learns long-term dependencies</li>
