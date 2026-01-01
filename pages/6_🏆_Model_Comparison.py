@@ -1,6 +1,6 @@
 """
 DASHBOARD 6: MODEL COMPARISON
-"Hangi model neden daha iyi?"
+"Which model is better and why?"
 """
 
 import streamlit as st
@@ -11,12 +11,12 @@ import plotly.graph_objects as go
 st.set_page_config(page_title="Model Comparison", page_icon="🏆", layout="wide")
 
 st.title("🏆 Model Comparison")
-st.markdown("### Hangi Model Neden Daha İyi?")
+st.markdown("### Which Model is Better and Why?")
 st.markdown("---")
 
-# Ana soru
+# Main question
 st.info("""
-**🎯 Ana Soru:** Hangi model neden daha iyi?
+**🎯 Main Question:** Which model is better and why?
 """)
 
 # Metrics Summary
@@ -45,14 +45,14 @@ with col1:
 
 with col2:
     st.success("""
-    ### 🏆 Şampiyon Model
+    ### 🏆 Champion Model
     
     **LightGBM**
     
     - RMSE: 31.62
     - R²: 0.853
     
-    *Seçim kriteri: En düşük RMSE*
+    *Selection criteria: Lowest RMSE*
     """)
 
 # Comparison Charts
@@ -60,13 +60,13 @@ col1, col2 = st.columns(2)
 
 with col1:
     fig_rmse = px.bar(metrics_df, x='Model', y='RMSE',
-                      title='RMSE Karşılaştırması (Düşük = İyi)',
+                      title='RMSE Comparison (Lower = Better)',
                       color='RMSE', color_continuous_scale='Reds_r')
     st.plotly_chart(fig_rmse, use_container_width=True)
 
 with col2:
     fig_r2 = px.bar(metrics_df, x='Model', y='R2',
-                    title='R² Karşılaştırması (Yüksek = İyi)',
+                    title='R² Comparison (Higher = Better)',
                     color='R2', color_continuous_scale='Greens')
     st.plotly_chart(fig_r2, use_container_width=True)
 
@@ -82,7 +82,7 @@ with tab1:
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("""
-        ### Model Parametreleri
+        ### Model Parameters
         - **n_estimators:** 100
         - **max_depth:** 6
         - **learning_rate:** 0.1
@@ -90,7 +90,7 @@ with tab1:
         """)
     with col2:
         st.markdown("""
-        ### Performans
+        ### Performance
         - **RMSE:** 32.45
         - **MAE:** 27.12
         - **R²:** 0.845
@@ -98,11 +98,11 @@ with tab1:
     
     st.markdown("""
     <div style='background-color: #e3f2fd; padding: 15px; border-radius: 8px;'>
-    <b>✅ Güçlü Yönleri:</b>
+    <b>✅ Strengths:</b>
     <ul>
-    <li>Feature importance hesaplama</li>
-    <li>Regularization ile overfitting kontrolü</li>
-    <li>Eksik değerlerle baş edebilme</li>
+    <li>Feature importance calculation</li>
+    <li>Overfitting control with regularization</li>
+    <li>Handles missing values</li>
     </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -114,7 +114,7 @@ with tab2:
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("""
-        ### Model Parametreleri
+        ### Model Parameters
         - **n_estimators:** 100
         - **num_leaves:** 31
         - **learning_rate:** 0.1
@@ -122,7 +122,7 @@ with tab2:
         """)
     with col2:
         st.markdown("""
-        ### Performans
+        ### Performance
         - **RMSE:** 31.62 ⭐
         - **MAE:** 26.82 ⭐
         - **R²:** 0.853 ⭐
@@ -130,11 +130,11 @@ with tab2:
     
     st.markdown("""
     <div style='background-color: #e8f5e9; padding: 15px; border-radius: 8px;'>
-    <b>✅ Güçlü Yönleri:</b>
+    <b>✅ Strengths:</b>
     <ul>
-    <li>Daha hızlı eğitim</li>
-    <li>Leaf-wise growth stratejisi</li>
-    <li>Büyük veri setlerinde etkili</li>
+    <li>Faster training</li>
+    <li>Leaf-wise growth strategy</li>
+    <li>Effective on large datasets</li>
     </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -146,14 +146,14 @@ with tab3:
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("""
-        ### Model Özellikleri
+        ### Model Features
         - Additive model
         - Trend + Seasonality
         - Holiday effects
         """)
     with col2:
         st.markdown("""
-        ### Performans
+        ### Performance
         - **RMSE:** 89.23 ⚠️
         - **MAE:** 72.45 ⚠️
         - **R²:** -0.172 ⚠️
@@ -161,16 +161,16 @@ with tab3:
     
     st.markdown("""
     <div style='background-color: #fff3e0; padding: 15px; border-radius: 8px;'>
-    <b>✅ Güçlü Yönleri:</b>
+    <b>✅ Strengths:</b>
     <ul>
-    <li>Mevsimsellik ayrıştırması</li>
-    <li>Tatil etkileri modelleme</li>
-    <li>Yorumlanabilirlik</li>
+    <li>Seasonality decomposition</li>
+    <li>Holiday effects modeling</li>
+    <li>Interpretability</li>
     </ul>
-    <b>⚠️ Zayıf Yönleri:</b>
+    <b>⚠️ Weaknesses:</b>
     <ul>
-    <li>Sadece zaman bazlı feature kullanır</li>
-    <li>Karmaşık pattern'larda yetersiz</li>
+    <li>Only uses time-based features</li>
+    <li>Insufficient for complex patterns</li>
     </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -182,14 +182,14 @@ with tab4:
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("""
-        ### Model Yapısı
-        - 2 LSTM layer
+        ### Model Structure
+        - 2 LSTM layers
         - 50 units each
         - Dropout: 0.2
         """)
     with col2:
         st.markdown("""
-        ### Performans
+        ### Performance
         - **RMSE:** 45.67
         - **MAE:** 38.91
         - **R²:** 0.693
@@ -197,16 +197,16 @@ with tab4:
     
     st.markdown("""
     <div style='background-color: #f3e5f5; padding: 15px; border-radius: 8px;'>
-    <b>✅ Güçlü Yönleri:</b>
+    <b>✅ Strengths:</b>
     <ul>
-    <li>Uzun vadeli bağımlılıkları öğrenme</li>
-    <li>Karmaşık non-linear pattern'lar</li>
+    <li>Learns long-term dependencies</li>
+    <li>Complex non-linear patterns</li>
     </ul>
-    <b>⚠️ Zayıf Yönleri:</b>
+    <b>⚠️ Weaknesses:</b>
     <ul>
-    <li>Daha fazla veri gerektirir</li>
-    <li>Yorumlanması zor</li>
-    <li>Daha uzun eğitim süresi</li>
+    <li>Requires more data</li>
+    <li>Hard to interpret</li>
+    <li>Longer training time</li>
     </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -214,10 +214,10 @@ with tab4:
 # Key Takeaways
 st.markdown("---")
 st.success("""
-### 💡 Bu Sayfanın Anahtar Çıkarımları
+### 💡 Key Takeaways from This Page
 
-- **Tree-based modeller üstün** - feature'ları daha iyi kullandı
-- **LightGBM en iyi RMSE** - şampiyon model
-- **Prophet mevsimsellikte güçlü** - ama bu veri için yetersiz
-- **LSTM daha fazla veriye ihtiyaç duyar** - küçük dataset'te düşük performans
+- **Tree-based models are superior** - better use of features
+- **LightGBM has lowest RMSE** - champion model
+- **Prophet is strong in seasonality** - but insufficient for this data
+- **LSTM needs more data** - low performance on small dataset
 """)
