@@ -45,7 +45,7 @@ if 'month' in df.columns:
     st.plotly_chart(fig_monthly, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #fff3e0; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ef9a9a ; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Demand is spread across a wide customer base, not concentrated in a few customers.
 Distinct trends are visible on a monthly basis.
 </div>
@@ -70,7 +70,7 @@ if 'dayofweek' in df.columns:
     st.plotly_chart(fig_dow, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #fff3e0; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ef9a9a ; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Clear differences exist between weekdays and weekends.
 Seller performance affects demand continuity.
 </div>
@@ -99,7 +99,7 @@ fig_trend.update_layout(title='Demand Trend (Moving Averages)',
 st.plotly_chart(fig_trend, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #fff3e0; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ef9a9a ; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Demand is concentrated in certain periods.
 Long-term trend is visible.
 </div>
