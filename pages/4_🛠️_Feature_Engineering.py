@@ -96,7 +96,7 @@ if 'daily_orders' in numeric_cols:
     st.plotly_chart(fig_corr, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Long-term lags and rolling means show high correlation with demand.
 These features should be included in the model.
 </div>
@@ -112,7 +112,7 @@ stats_df = df[numeric_cols[:10]].describe().T.round(2)
 st.dataframe(stats_df, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Features have scale differences. Normalization may be required for some models.
 </div>
 """, unsafe_allow_html=True)
