@@ -24,7 +24,7 @@ st.markdown("---")
 
 # Ana soru
 st.info("""
-**🎯 Ana Soru:** What does this data tell us? What kind of demand pattern does Olist show?
+**🎯 Main Question ?:** What does this data tell us? What kind of demand pattern does Olist show?
 """)
 
 # Dataset Overview
