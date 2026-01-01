@@ -1,6 +1,6 @@
 """
 DASHBOARD 5: FEATURE SELECTION & SHAP
-"Feature'ları rastgele değil, kanıtla seçtik."
+"We selected features with evidence, not randomly."
 """
 
 import streamlit as st
@@ -20,27 +20,27 @@ def load_data():
 df = load_data()
 
 st.title("🎯 Feature Selection & SHAP")
-st.markdown("### Neden Bu Feature'lar?")
+st.markdown("### Why These Features?")
 st.markdown("---")
 
-# Ana soru
+# Main question
 st.info("""
-**🎯 Ana Soru:** Feature'ları rastgele değil, kanıtla seçtik.
+**🎯 Main Question:** We selected features with evidence, not randomly.
 """)
 
 # Tabs
-tab1, tab2, tab3 = st.tabs(["📊 Feature Selection", "🔍 SHAP Analysis", "🔗 Korelasyon"])
+tab1, tab2, tab3 = st.tabs(["📊 Feature Selection", "🔍 SHAP Analysis", "🔗 Correlation"])
 
 with tab1:
     st.subheader("📊 Feature Selection Results")
-    st.markdown("*Çoklu yöntemle feature değerlendirmesi*")
+    st.markdown("*Feature evaluation with multiple methods*")
     
     st.markdown("""
-    ### Kullanılan Yöntemler:
+    ### Methods Used:
     
-    1. **Correlation Analysis** - Hedef ile korelasyon
-    2. **Mutual Information** - Non-linear bağımlılık
-    3. **Random Forest Importance** - Tree-based önem skoru
+    1. **Correlation Analysis** - Correlation with target
+    2. **Mutual Information** - Non-linear dependency
+    3. **Random Forest Importance** - Tree-based importance score
     """)
     
     # Calculate feature importance (correlation-based)
@@ -58,21 +58,21 @@ with tab1:
     
     st.markdown("""
     <div style='background-color: #fce4ec; padding: 15px; border-radius: 8px; margin: 10px 0;'>
-    <b>📝 Yorum:</b> Üç farklı yöntem benzer feature'ları öne çıkarıyor.
-    Uzun dönem trend ve lag feature'ları baskın.
+    <b>📝 Comment:</b> Three different methods highlight similar features.
+    Long-term trend and lag features are dominant.
     </div>
     """, unsafe_allow_html=True)
 
 with tab2:
     st.subheader("🔍 SHAP Analysis")
-    st.markdown("*Model tahminlerini açıklama*")
+    st.markdown("*Explaining model predictions*")
     
     st.markdown("""
-    ### SHAP Değerleri Ne Anlatır?
+    ### What Do SHAP Values Tell Us?
     
-    - **Pozitif SHAP:** Feature tahmini artırıyor
-    - **Negatif SHAP:** Feature tahmini azaltıyor
-    - **Büyüklük:** Etkinin gücü
+    - **Positive SHAP:** Feature increases prediction
+    - **Negative SHAP:** Feature decreases prediction
+    - **Magnitude:** Strength of the effect
     """)
     
     # Simulated SHAP importance
@@ -89,14 +89,14 @@ with tab2:
     
     st.markdown("""
     <div style='background-color: #fce4ec; padding: 15px; border-radius: 8px; margin: 10px 0;'>
-    <b>📝 Yorum:</b> SHAP ile selection sonuçlarını doğruladık. 
-    Rolling mean ve lag feature'ları baskın.
+    <b>📝 Comment:</b> SHAP validated our selection results.
+    Rolling mean and lag features are dominant.
     </div>
     """, unsafe_allow_html=True)
 
 with tab3:
-    st.subheader("🔗 Feature Korelasyon Matrisi")
-    st.markdown("*Seçili feature'ların korelasyonu*")
+    st.subheader("🔗 Feature Correlation Matrix")
+    st.markdown("*Correlation of selected features*")
     
     # Select top features for correlation
     top_features = ['daily_orders']
@@ -109,26 +109,26 @@ with tab3:
         corr_matrix = df[top_features].corr()
         
         fig_heat = px.imshow(corr_matrix, 
-                            title='Korelasyon Matrisi',
-                            labels=dict(color="Korelasyon"),
+                            title='Correlation Matrix',
+                            labels=dict(color="Correlation"),
                             color_continuous_scale='RdBu_r',
                             aspect='auto')
         st.plotly_chart(fig_heat, use_container_width=True)
     
     st.markdown("""
     <div style='background-color: #fce4ec; padding: 15px; border-radius: 8px; margin: 10px 0;'>
-    <b>📝 Yorum:</b> Multicollinearity kontrolü yapıldı. 
-    Yüksek korelasyonlu feature çiftleri modelde dikkatli kullanılmalı.
+    <b>📝 Comment:</b> Multicollinearity check was performed.
+    Highly correlated feature pairs should be used carefully in the model.
     </div>
     """, unsafe_allow_html=True)
 
 # Key Takeaways
 st.markdown("---")
 st.success("""
-### 💡 Bu Sayfanın Anahtar Çıkarımları
+### 💡 Key Takeaways from This Page
 
-- **Çoklu yöntem** - tek yönteme bağımlı değiliz
-- **SHAP doğrulaması** - feature önemi açıklanabilir
-- **Rolling mean ve lag baskın** - trend önemli
-- **Model kara kutu değil** - SHAP ile her tahmin açıklanabilir
+- **Multiple methods** - not dependent on a single method
+- **SHAP validation** - feature importance is explainable
+- **Rolling mean and lag dominant** - trend is important
+- **Model is not a black box** - every prediction can be explained with SHAP
 """)
