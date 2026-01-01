@@ -24,7 +24,7 @@ st.markdown("---")
 
 # Ana soru
 st.info("""
-**🎯 Ana Soru:** Bu veri ne anlatıyor? Olist'te talep nasıl bir yapı gösteriyor?
+**🎯 Ana Soru:** What does this data tell us? What kind of demand pattern does Olist show?
 """)
 
 # Dataset Overview
