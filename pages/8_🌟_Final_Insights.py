@@ -1,6 +1,6 @@
 """
 DASHBOARD 8: FINAL INSIGHTS
-"Bu çalışmadan ne öğrendik?"
+"What did we learn from this study?"
 """
 
 import streamlit as st
@@ -10,19 +10,19 @@ import plotly.express as px
 st.set_page_config(page_title="Final Insights", page_icon="🌟", layout="wide")
 
 st.title("🌟 Final Insights")
-st.markdown("### Sunum Kapanışı - Bu Çalışmadan Ne Öğrendik?")
+st.markdown("### Presentation Closing - What Did We Learn from This Study?")
 st.markdown("---")
 
 # Journey Summary
 st.markdown("""
-## 📊 Analiz Yolculuğumuz
+## 📊 Our Analysis Journey
 
 Data Cleaning → EDA → Feature Engineering → Feature Selection → Modeling → Explainability
 
 """)
 
 # Model Result
-st.subheader("🏆 1. En İyi Model")
+st.subheader("🏆 1. Best Model")
 
 col1, col2 = st.columns([1, 2])
 
@@ -30,13 +30,13 @@ with col1:
     st.success("""
     ### 🥇 LightGBM
     
-    | Metrik | Değer |
+    | Metric | Value |
     |--------|-------|
     | **RMSE** | 31.62 |
     | **MAE** | 26.82 |
     | **R²** | 0.853 |
     
-    *85%+ varyansı açıklama*
+    *Explains 85%+ of variance*
     """)
 
 with col2:
@@ -47,23 +47,23 @@ with col2:
     })
     
     fig = px.bar(metrics_df, x='Model', y='RMSE', color='RMSE',
-                 title='Model RMSE Karşılaştırması',
+                 title='Model RMSE Comparison',
                  color_continuous_scale='RdYlGn_r')
     st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
 
 # Top Features
-st.subheader("🎯 2. En Önemli 5 Feature")
+st.subheader("🎯 2. Top 5 Most Important Features")
 
 st.markdown("""
-| Sıra | Feature | Açıklama | Önem |
-|------|---------|---------|------|
-| 1 | **rolling_mean_30** | 30 günlük ortalama | ⭐⭐⭐⭐⭐ |
-| 2 | **lag_7** | 7 gün önceki talep | ⭐⭐⭐⭐ |
-| 3 | **rolling_mean_7** | 7 günlük ortalama | ⭐⭐⭐⭐ |
-| 4 | **lag_14** | 14 gün önceki talep | ⭐⭐⭐ |
-| 5 | **dayofweek** | Haftanın günü | ⭐⭐⭐ |
+| Rank | Feature | Description | Importance |
+|------|---------|-------------|------------|
+| 1 | **rolling_mean_30** | 30-day average | ⭐⭐⭐⭐⭐ |
+| 2 | **lag_7** | Demand 7 days ago | ⭐⭐⭐⭐ |
+| 3 | **rolling_mean_7** | 7-day average | ⭐⭐⭐⭐ |
+| 4 | **lag_14** | Demand 14 days ago | ⭐⭐⭐ |
+| 5 | **dayofweek** | Day of week | ⭐⭐⭐ |
 """)
 
 col1, col2 = st.columns(2)
@@ -81,92 +81,92 @@ with col1:
 
 with col2:
     st.markdown("""
-    ### 📝 Feature Önemleri Yorumu
+    ### 📝 Feature Importance Interpretation
     
-    **Rolling Mean Baskın:**
-    - Trend en önemli faktör
-    - Kısa ve orta vade trendi yakalar
+    **Rolling Mean is Dominant:**
+    - Trend is the most important factor
+    - Captures short and medium-term trends
     
-    **Lag Feature'lar Önemli:**
-    - Geçmiş talep gelecek talebi etkiler
-    - 7 ve 14 günlük lag'ler kritik
+    **Lag Features are Important:**
+    - Past demand affects future demand
+    - 7 and 14-day lags are critical
     
-    **Haftalık Pattern:**
-    - Haftanın günü talebi etkiliyor
+    **Weekly Pattern:**
+    - Day of week affects demand
     """)
 
 st.markdown("---")
 
 # Business Insights
-st.subheader("💼 3. İşsel Çıkarımlar")
+st.subheader("💼 3. Business Insights")
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
     st.info("""
-    ### 📦 Stok Planlama
+    ### 📦 Inventory Planning
     
-    **Öneri:** Rolling mean değerlerine 
-    göre stok seviyelerini ayarla
+    **Recommendation:** Adjust inventory levels 
+    based on rolling mean values
     
-    - Yükselen trend → Stok artır
-    - Düşen trend → Stok azalt
+    - Rising trend → Increase stock
+    - Falling trend → Reduce stock
     """)
 
 with col2:
     st.info("""
-    ### 📅 Kampanya Zamanlaması
+    ### 📅 Campaign Timing
     
-    **Öneri:** Yüksek talep dönemlerinde
-    kampanya başlatma
+    **Recommendation:** Launch campaigns
+    during high demand periods
     
-    - Peak dönemleri önceden tahmin et
-    - Pazarlama bütçesini optimize et
+    - Predict peak periods in advance
+    - Optimize marketing budget
     """)
 
 with col3:
     st.info("""
-    ### 🚚 Lojistik Planlama
+    ### 🚚 Logistics Planning
     
-    **Öneri:** Talep dalgalanmalarına
-    göre kapasite ayarla
+    **Recommendation:** Adjust capacity
+    based on demand fluctuations
     
-    - Yüksek volatilite = Ekstra kapasite
-    - Stabil dönem = Optimize kapasite
+    - High volatility = Extra capacity
+    - Stable period = Optimized capacity
     """)
 
 st.markdown("---")
 
 # Academic Value
-st.subheader("🎓 4. Akademik Değer")
+st.subheader("🎓 4. Academic Value")
 
 st.markdown("""
-### Bu Çalışmanın Akademik Katkısı
+### Academic Contribution of This Study
 
-| Alan | Katkı |
-|------|------|
-| **Metodoloji** | Çoklu feature selection yöntemi ile robust değerlendirme |
-| **Karşılaştırma** | Tree-based vs Time Series vs Deep Learning kapsamlı karşılaştırma |
-| **Açıklanabilirlik** | SHAP ile black-box olmayan model açıklaması |
-| **Tekrarlanabilirlik** | Tüm kod ve görseller paylaşıldı |
+| Area | Contribution |
+|------|--------------|
+| **Methodology** | Robust evaluation with multiple feature selection methods |
+| **Comparison** | Comprehensive comparison of Tree-based vs Time Series vs Deep Learning |
+| **Explainability** | Non-black-box model explanation with SHAP |
+| **Reproducibility** | All code and visualizations shared |
 """)
 
 st.markdown("---")
 
 # Conclusion
 st.success("""
-## 🌟 Sonuç
+## 🌟 Conclusion
 
-> "Veriyi anladık → Anlamlı feature'lar oluşturduk → Titizlikle seçtik → 
-Modelleri adil karşılaştırdık → Kazananı açıkladık."
+> "We understood the data → Created meaningful features → Selected carefully → 
+Compared models fairly → Explained the winner."
 
-### Ana Mesaj:
-**Rolling mean ve lag feature'ları, talep tahmininde en kritik faktörler.**
+### Main Message:
+**Rolling mean and lag features are the most critical factors in demand forecasting.**
 
-Bu yapı:
-- ✅ Stok planlamada kullanılabilir
-- ✅ Kampanya zamanlamada kullanılabilir  
-- ✅ Lojistik optimizasyonda kullanılabilir
+This structure:
+- ✅ Can be used in inventory planning
+- ✅ Can be used in campaign timing  
+- ✅ Can be used in logistics optimization
 """)
 
 # Celebration
@@ -176,8 +176,8 @@ st.balloons()
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;'>
-<h3>🎓 Talep Tahmini Projesi</h3>
+<h3>🎓 Demand Forecasting Project</h3>
 <p>Data Cleaning → EDA → Feature Engineering → Modeling → Explainability</p>
-<p><strong>Teşekkürler!</strong></p>
+<p><strong>Thank You!</strong></p>
 </div>
 """, unsafe_allow_html=True)
