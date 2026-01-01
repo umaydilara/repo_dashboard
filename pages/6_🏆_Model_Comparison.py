@@ -97,7 +97,7 @@ with tab1:
         """)
     
     st.markdown("""
-    <div style='background-color: #e3f2fd; padding: 15px; border-radius: 8px;'>
+    <div style='background-color: #ef9a9a; padding: 15px; border-radius: 8px;'>
     <b>✅ Strengths:</b>
     <ul>
     <li>Feature importance calculation</li>
