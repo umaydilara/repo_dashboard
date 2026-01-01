@@ -51,7 +51,7 @@ with col2:
     st.write(f"- Total Rows: **{len(df):,}**")
 
 st.markdown("""
-<div style='background-color: #ffebee; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ffcdd2; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> The general structure of the dataset, data types, and missing value ratio are displayed.
 </div>
 """, unsafe_allow_html=True)
@@ -69,7 +69,7 @@ fig_ts.update_layout(hovermode='x unified')
 st.plotly_chart(fig_ts, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #ffebee; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ffcdd2; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Demand is spread over time with no sudden breaks. Rising trend and seasonal patterns are visible.
 </div>
 """, unsafe_allow_html=True)
@@ -95,7 +95,7 @@ with col2:
     st.plotly_chart(fig_box, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #ffebee; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ffcdd2; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> The platform has a multi-category structure. Some days have dominant order volumes.
 </div>
 """, unsafe_allow_html=True)
@@ -118,7 +118,7 @@ if 'dayofweek' in df.columns:
     st.plotly_chart(fig_dow, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #ffebee; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ffcdd2; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Weekday and weekend demand differences are observed.
 </div>
 """, unsafe_allow_html=True)
