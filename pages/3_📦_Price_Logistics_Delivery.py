@@ -52,7 +52,7 @@ with col2:
     st.plotly_chart(fig_cv, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ef9a9a ; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Volatility changes over time. High volatility periods 
 pose risks for inventory and logistics planning.
 </div>
@@ -87,7 +87,7 @@ fig_perc = px.bar(x=[f'{p}th Percentile' for p in percentiles], y=perc_values,
 st.plotly_chart(fig_perc, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ef9a9a ; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> The 95th percentile is critical for daily capacity planning.
 Extra resources are needed for days above this value.
 </div>
@@ -115,7 +115,7 @@ if 'dayofweek' in df_peaks.columns:
     st.plotly_chart(fig_peak, use_container_width=True)
 
 st.markdown("""
-<div style='background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 10px 0;'>
+<div style='background-color: #ef9a9a ; padding: 15px; border-radius: 8px; margin: 10px 0;'>
 <b>📝 Comment:</b> Peak days are concentrated on certain days of the week.
 Logistics capacity should be planned according to these days.
 </div>
