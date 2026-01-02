@@ -52,7 +52,7 @@ metrics_df = metrics_df[['Rank', 'Model', 'RMSE', 'MAE', 'R2', 'MAPE', 'WMAPE', 
 st.dataframe(metrics_df, use_container_width=True, hide_index=True)
 
 winner = metrics_df[metrics_df['Rank'] == 1]['Model'].values[0]
-st.success(f"🏆 **Champion Model: {winner}** - En yuksek Overall Score ile birinci!")
+st.success(f"🏆 **Champion Model: {winner}** - Highest Overall Score!")
 
 st.markdown("---")
 st.subheader("📈 Detailed Metric Comparison")
@@ -119,9 +119,9 @@ st.markdown("---")
 st.subheader("📊 MAPE vs WMAPE Analysis")
 
 st.info("""
-**MAPE (Mean Absolute Percentage Error):** Ortalama mutlak yuzde hata. Her bir tahmin hatasinin yuzdesel ortalamasi.
+**MAPE (Mean Absolute Percentage Error):** Average of absolute percentage errors for each prediction.
 
-**WMAPE (Weighted Mean Absolute Percentage Error):** Agirlikli ortalama mutlak yuzde hata. Buyuk degerlere daha fazla agirlik verir, bu nedenle talep tahmininde daha guvenilir bir metriktir.
+**WMAPE (Weighted Mean Absolute Percentage Error):** Weighted average that gives more importance to larger values. More reliable for demand forecasting as high-volume days are more critical.
 """)
 
 col5, col6 = st.columns(2)
@@ -236,26 +236,26 @@ col_ins1, col_ins2 = st.columns(2)
 
 with col_ins1:
     st.markdown("""
-    **🥇 LightGBM Performansi:**
-    - En dusuk RMSE (33.83) ve MAE (26.33)
-    - En yuksek R2 (0.8317)
-    - En dusuk WMAPE (%12.24)
-    - Gradient boosting ailesinden guclu performans
+    **🥇 LightGBM Performance:**
+    - Lowest RMSE (33.83) and MAE (26.33)
+    - Highest R2 (0.8317)
+    - Lowest WMAPE (12.24%)
+    - Strong performance from gradient boosting family
     """)
 
 with col_ins2:
     st.markdown("""
-    **📉 Prophet & LSTM Sonuclari:**
-    - Prophet negatif R2 (-0.9249) ile zayif performans
-    - LSTM dusuk R2 (0.0513) gosteriyor
-    - Her iki model de bu veri seti icin uygun degil
-    - Tree-based modeller zaman serisi icin daha etkili
+    **📉 Prophet & LSTM Results:**
+    - Prophet shows weak performance with negative R2 (-0.9249)
+    - LSTM shows low R2 (0.0513)
+    - Both models are not suitable for this dataset
+    - Tree-based models are more effective for this time series
     """)
 
 st.warning("""
-**⚠️ MAPE vs WMAPE Farki:**
-- MAPE'de LightGBM (%37.81) > XGBoost (%35.01)
-- WMAPE'de LightGBM (%12.24) < XGBoost (%13.74)
-- WMAPE buyuk degerlere daha fazla agirlik verir, bu nedenle talep tahmininde daha guvenilir bir metriktir.
-- **Sonuc:** WMAPE'ye gore LightGBM acik ara kazanan!
+**⚠️ MAPE vs WMAPE Difference:**
+- In MAPE: LightGBM (37.81%) > XGBoost (35.01%)
+- In WMAPE: LightGBM (12.24%) < XGBoost (13.74%)
+- WMAPE gives more weight to larger values, making it more reliable for demand forecasting.
+- **Conclusion:** Based on WMAPE, LightGBM is the clear winner!
 """)
